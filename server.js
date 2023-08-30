@@ -12,8 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //app.use(routes);
 
-db.once('open', () => {
+app.use("/api", require("./routes/route"));
+
+db.connect();
 app.listen(PORT, () => {
   console.log(`Example app listening on port HTTP://localhost:${PORT}`)
-})
 })
